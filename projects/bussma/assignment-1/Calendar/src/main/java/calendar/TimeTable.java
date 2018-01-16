@@ -52,7 +52,7 @@ public class TimeTable {
 	        //Retrieve the appts - <appt> 
 		for (int i = 0; i < appts.size(); i++) {
 			Appt appt=appts.get(i);
-			if(!appt.getValid()) continue;
+			if(appt.getValid()) continue;
 			// Figure out which days the appointment occurs on
 			LinkedList<GregorianCalendar> apptOccursOnDays = getApptOccurences(
 					appt, firstDay, lastDay);
@@ -198,7 +198,7 @@ public class TimeTable {
 	     **/
 	    public LinkedList<Appt> deleteAppt(LinkedList<Appt> appts,Appt appt) {
 	    	//Do not do anything to appts equals to null 
-	        if(appts==null||appt==null)
+	        if(appts==null&&appt==null)
         		return null;
 	    	//Do not do anything to invalid appointments
 	        if (!appt.getValid()) {
