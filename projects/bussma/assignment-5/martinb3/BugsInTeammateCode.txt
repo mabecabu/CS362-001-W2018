@@ -1,0 +1,11 @@
+Bug-Reports											Matthew Buss
+
+Bug 1: Appt.java, isValid(), line 115
+Caught by ApptRandomTest line 102
+
+Line 115 has had its OR changed to AND. This lets appointments with an hour below 0 or above 23 to be marked as valid, when they should be marked invalid. It is no longer possible for an appointment with an invalid hour to be marked as such since the hour cannot be simultaneously less than 0 and greater than 23. This bug was discovered when the random test for the Appt class generated an appointment with a random invalid hour but was otherwise valid. When the Appt was marked valid the test failed.
+
+Bug 2: CalDay.java, toString(), line 173
+Caught by CalDayTest line 115
+
+This bug was found when initially running the test suite on the new code. Line 173 has been modified to get the month twice instead of the month then the day. When the string is printed it doesn’t match what the format of the string should be and the test fails. 
